@@ -7,11 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.*
 import com.example.feedsnap.ui.theme.FeedSnapTheme
+import com.example.feedsnap.view.UploadScreen
+import com.example.feedsnap.view.NutritionChart
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +19,35 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FeedSnapTheme {
+                val navController = rememberNavController()
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    NavHost(
+                        navController = navController,
+                        startDestination = "upload",
+                        modifier = Modifier.padding(innerPadding) // ✅ FIX HERE
+                    ) {
+                        composable("upload") {
+                            UploadScreen(
+                                onSelectImageClick = { /* to be implemented */ },
+                                onSubmitClick = {
+                                    navController.navigate("summary")
+                                }
+                            )
+                        }
+
+                        composable("summary") {
+                            NutritionChart(
+                                calories = 1400,
+                                protein = 90,
+                                carbs = 180,
+                                fats = 60
+                            )
+                        }
+                    }
                 }
+
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FeedSnapTheme {
-        Greeting("Android")
     }
 }
