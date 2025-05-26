@@ -2,7 +2,9 @@ package com.example.feedsnap.view
 
 import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,6 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.feedsnap.R
 
@@ -26,55 +29,72 @@ fun UploadScreen(
             .fillMaxSize()
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
+        // Title
         Text(
             text = "Upload Your Meal",
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.headlineMedium,
+            color = Color.Black,
+            modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // Show selected image or placeholder
-        if (imageUri != null) {
-            Image(
-                painter = rememberAsyncImagePainter(model = imageUri),
-                contentDescription = "Selected Meal Image",
-                modifier = Modifier
-                    .size(240.dp)
-                    .padding(8.dp),
-                contentScale = ContentScale.Crop
-            )
-        } else {
-//            Image(
-//                painter = painterResource(id = R.drawable.placeholder_image),
-//                contentDescription = "Placeholder Image",
-//                modifier = Modifier
-//                    .size(240.dp)
-//                    .padding(8.dp),
-//                contentScale = ContentScale.Crop
-//            )
+        // Image Preview Card
+        Box(
+            modifier = Modifier
+                .size(250.dp)
+                .background(Color.LightGray.copy(alpha = 0.2f), shape = RoundedCornerShape(16.dp)),
+            contentAlignment = Alignment.Center
+        ) {
+            if (imageUri != null) {
+                Image(
+                    painter = rememberAsyncImagePainter(model = imageUri),
+                    contentDescription = "Selected Meal Image",
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp),
+                    contentScale = ContentScale.Crop
+                )
+            } else {
+//                Image(
+//                    painter = painterResource(id = R.drawable.placeholder_image),
+//                    contentDescription = "Placeholder Image",
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(16.dp),
+//                    contentScale = ContentScale.Fit
+//                )
+            }
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
-        Button(
-            onClick = onSelectImageClick,
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9800))
+        // Buttons
+        Column(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Choose Image")
-        }
+            Button(
+                onClick = onSelectImageClick,
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9800)),
+                modifier = Modifier.fillMaxWidth(0.85f)
+            ) {
+                Text("Choose Image", fontSize = 16.sp, color = Color.White)
+            }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = onSubmitClick,
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
-        ) {
-            Text("Analyze", color = Color.White)
+            Button(
+                onClick = onSubmitClick,
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
+                modifier = Modifier.fillMaxWidth(0.85f)
+            ) {
+                Text("Analyze", fontSize = 16.sp, color = Color.White)
+            }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
