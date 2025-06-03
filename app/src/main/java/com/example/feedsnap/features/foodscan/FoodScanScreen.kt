@@ -47,8 +47,11 @@ fun FoodScanScreen(
 
     // Automatically analyze the image when this screen is shown
     LaunchedEffect(imageUri) {
-        val base64Image = ImageUtils.uriToBase64(context, imageUri)
-        viewModel.analyzeFoodImage(base64Image)
+//        val base64Image = ImageUtils.uriToBase64(context, imageUri)
+//        viewModel.analyzeFoodImage(base64Image)
+        val file = ImageUtils.uriToFile(context, imageUri)
+        viewModel.analyzeFoodImage(file)
+
     }
 
     Box(modifier = Modifier.fillMaxSize()) {

@@ -15,7 +15,11 @@ object RetrofitClient {
 //        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
 //        .build()
 
-    private const val BASE_URL = "https://serverless.roboflow.com/" // Replace with your actual base URL
+//    private const val BASE_URL = "https://serverless.roboflow.com/"
+//    private const val BASE_URL = "https://detect.roboflow.com/"
+//    private const val BASE_URL = "http://127.0.0.1:8000/"
+    private const val BASE_URL = "http://192.168.100.7:8000/"
+
 
     // Create JSON instance with any custom configuration
     private val json = Json {

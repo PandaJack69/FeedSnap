@@ -10,11 +10,11 @@ import com.example.feedsnap.domain.usecase.SaveNutritionDataUseCase
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import androidx.lifecycle.ViewModel
 import com.example.feedsnap.domain.usecase.SaveToMealPlanUseCase
 import com.example.feedsnap.features.bmi.BMIViewModel
 import com.example.feedsnap.features.foodscan.FoodScanViewModel
 import com.example.feedsnap.features.nutrition.NutritionViewModel
+import com.google.gson.Gson
 
 object AppModule {
 
@@ -26,10 +26,15 @@ object AppModule {
         // Remote Data
         single { RetrofitClient.foodApi }
 
+        // Gson instance
+        single { Gson() }
+
+        // NutritionRepository
         single<NutritionRepository> {
             NutritionRepositoryImpl(
                 foodApi = get(),
-                nutritionDao = get()
+                nutritionDao = get(),
+                gson = get()
             )
         }
 

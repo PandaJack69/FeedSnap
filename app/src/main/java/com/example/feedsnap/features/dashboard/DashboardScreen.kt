@@ -44,14 +44,17 @@ fun DashboardScreen(
             onClick = onOpenCamera,
             modifier = Modifier.padding(16.dp)
         ) {
-            Text("Take Photo")
+//            Text("Take Photo")
+            Text("Ambil Foto")
+
         }
 
         Button(
             onClick = onChooseImage,
             modifier = Modifier.padding(16.dp)
         ) {
-            Text("Choose from Gallery")
+//            Text("Choose from Gallery")
+            Text("Gallery")
         }
 
         DashboardHeader(

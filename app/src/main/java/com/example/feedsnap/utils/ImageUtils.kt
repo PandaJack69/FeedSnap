@@ -66,4 +66,14 @@ object ImageUtils {
         return file
     }
 
+    fun uriToFile(context: Context, uri: Uri): File {
+        val inputStream = context.contentResolver.openInputStream(uri)
+        val tempFile = File.createTempFile("image", ".jpg", context.cacheDir)
+        tempFile.outputStream().use { outputStream ->
+            inputStream?.copyTo(outputStream)
+        }
+        return tempFile
+    }
+
+
 }

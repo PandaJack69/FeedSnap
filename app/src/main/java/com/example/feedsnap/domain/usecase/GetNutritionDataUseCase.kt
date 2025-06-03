@@ -6,7 +6,7 @@ import com.example.feedsnap.domain.repository.NutritionRepository
 class GetNutritionDataUseCase(
     private val repository: NutritionRepository
 ) {
-    suspend operator fun invoke(image: String): NutritionInfo {
-        return repository.analyzeFoodImage(image)
-    }
+//    suspend operator fun invoke(image: String): NutritionInfo {
+//        return repository.analyzeFoodImage(image)
+//    }
 }
