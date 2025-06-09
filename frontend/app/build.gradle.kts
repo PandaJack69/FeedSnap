@@ -41,6 +41,18 @@ android {
 
 dependencies {
 
+    // Material Design Components
+    implementation ("com.google.android.material:material:1.11.0")
+
+    // For image loading from gallery
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    // For camera operations
+    implementation ("androidx.camera:camera-core:1.4.0-alpha02")
+    implementation ("androidx.camera:camera-camera2:1.4.0-alpha02")
+    implementation ("androidx.camera:camera-lifecycle:1.4.0-alpha02")
+    implementation ("androidx.camera:camera-view:1.4.0-alpha02")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -49,6 +61,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
