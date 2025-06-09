@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/analyze_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -26,4 +27,14 @@
         android:contentDescription="Food Image"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_food_placeholder" />
+
+    <Button
+        android:id="@+id/btnSendForAnalysis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send for Analysis"
+        android:enabled="false"
+        android:layout_marginTop="16dp"/>
+
+
 </LinearLayout>
