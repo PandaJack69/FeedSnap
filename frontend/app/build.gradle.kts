@@ -41,6 +41,23 @@ android {
 
 dependencies {
 
+    // Retrofit for networking
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Retrofit converter (Gson for JSON parsing)
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // OkHttp for HTTP client
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+
+    // OkHttp Logging Interceptor (optional but useful)
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+    // Retrofit support for multipart file uploads
+    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+    ///////////////////
+
     // Material Design Components
     implementation ("com.google.android.material:material:1.11.0")
 
