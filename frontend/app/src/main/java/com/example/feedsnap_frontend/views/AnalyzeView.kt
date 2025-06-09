@@ -72,19 +72,6 @@ class AnalyzeView : AppCompatActivity() {
         setImageUploadEnabled(true)
     }
 
-//    fun showPredictionResult(prediction: String) {
-//        // Create a TextView to show the result
-//        val resultView = TextView(this).apply {
-//            text = "Prediction: $prediction"
-//            textSize = 18f
-//            gravity = Gravity.CENTER
-//            setTextColor(ContextCompat.getColor(this@AnalyzeView, R.color.black))
-//        }
-//
-//        // Add below the image
-//        val layout = findViewById<LinearLayout>(R.id.analyze_layout)
-//        layout.addView(resultView, layout.indexOfChild(btnSendForAnalysis) + 1)
-//    }
     private var resultTextView: TextView? = null
     private var nutritionView: TextView? = null
 
@@ -128,27 +115,6 @@ class AnalyzeView : AppCompatActivity() {
             }
         )
     }
-
-//    fun showPredictionResult(prediction: String) {
-//        val layout = findViewById<LinearLayout>(R.id.analyze_layout)
-//
-//        // Remove old prediction view if it exists
-//        resultTextView?.let { layout.removeView(it) }
-//
-//        // Create new prediction view
-//        resultTextView = TextView(this).apply {
-//            text = "Prediction: $prediction"
-//            textSize = 18f
-//            gravity = Gravity.CENTER
-//            setTextColor(ContextCompat.getColor(this@AnalyzeView, android.R.color.white))
-//            setTypeface(null, Typeface.BOLD)
-//            setPadding(0, 16, 0, 0)
-//        }
-//
-//        // Insert below the send button
-//        val sendButton = findViewById<Button>(R.id.btnSendForAnalysis)
-//        layout.addView(resultTextView, layout.indexOfChild(sendButton) + 1)
-//    }
 
     private fun checkCameraPermissionAndCapture() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)

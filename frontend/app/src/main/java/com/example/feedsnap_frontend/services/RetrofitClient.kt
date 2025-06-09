@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-//    private const val BASE_URL = "http://YOUR_LOCAL_IP:5050"
     private const val BASE_URL = "http://192.168.100.7:5050"
 
     val instance: PredictionService by lazy {
@@ -18,7 +17,7 @@ object RetrofitClient {
 
     val nutritionService: NutritionService by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.100.7:8002/")  // Replace with your host machine IP
+            .baseUrl("http://192.168.100.7:8002/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(NutritionService::class.java)
