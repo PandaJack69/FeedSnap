@@ -1,0 +1,96 @@
+== FeedSnap Project Structure ==
+FeedSnap/ 
+├── backend/ 
+│   ├── Fruit_Vegetable_Recognition/
+│   └── Nutrition_Fetcher/
+├── frontend/ 
+│   ├── app/ 
+│   │   └── src/ 
+│   │        └── main/ 
+│   │             ├── java/com/example/feedsnap_frontend/
+│   │             │    ├── controllers/ 
+│   │             │    │   ├── DashboardController.kt 
+│   │             │    │   ├── AnalyzeController.kt 
+│   │             │    │   └── BMIController.kt 
+│   │             │    ├── models/ 
+│   │             │    │   └── BMIModel.kt 
+│   │             │    ├── services/
+│   │             │    │   ├── PredictionService
+│   │             │    │   ├── NutritionService
+│   │             │    │   └── RetrofitClient 
+│   │             │    ├── views/ 
+│   │             │    │   ├── DashBoardView.kt 
+│   │             │    │   ├── AnalyzeView.kt 
+│   │             │    │   └── BMIView.kt 
+│   │             │    └── MainActivity.kt 
+│   │             └── res
+│   │                  └── layout/ 
+│   │                       ├── activity_main.xml 
+│   │                       ├── analyze_view.xml 
+│   │                       ├── bmi_view.xml 
+│   │                       └── dashboard_view.xml 
+│   └── (android studio files) 
+├── .gradle
+└── .idea  
+
+== Backend 1 ==
+From git repo: https://github.com/jithesh82/noms
+Nutrition_Fetcher/
+├── noms/
+│   ├── __pycache__/
+│   ├── client/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── dict_parse.py
+│   │   └── main.py 
+│   ├── objects/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── food.py
+│   │   ├── nutrient_dict.py
+│   │   └── nutrient_ids.json
+│   ├── service/
+│   │   ├── __init__.py
+│   │   ├── food.py
+│   │   ├── report.py
+│   │   └── search.py
+│   ├── __init__.py
+│   ├── all_nutrient_ids.txt
+│   ├── analyze.py    
+│   ├── food.py  
+│   ├── LICENSE
+│   ├── MANIFEST.in
+│   ├── README.md
+│   ├── report.py
+│   ├── search.py
+│   ├── setup.py
+│   └── test.py
+├── __pycache__
+├── myapikey.txt
+├── noms_client.py
+└── nutrition_api.py
+
+== Backend 2 ==
+From git repo: https://github.com/Spidy20/Fruit_Vegetable_Recognition
+Fruit_Vegetable_Recognition/
+├── .venv/
+├── fruits_env/
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── dict_parse.py
+│   └── main.py 
+├── upload_images/
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── food.py
+│   ├── nutrient_dict.py
+│   └── nutrient_ids.json
+├── 19012022001_Case_Study_Report_DL.pdf
+├── ec2_api.py    
+├── Fruit_Veg_Classification_Mobilenet.ipnyb 
+├── FV.h5
+├── README.md
+├── requirements.txt
+├── App.py
+├── Fruits_Vegetable_Classification.py
+└── api_server.py
